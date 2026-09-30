@@ -1,5 +1,10 @@
 # md-to-docx
 
+![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-blue)
+![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-2ea44f)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
+![Dependencies](https://img.shields.io/badge/deps-python--docx%20%C2%B7%20matplotlib-informational)
+
 **把 Markdown 转成可直接交付的 Word 文档——其中的图由 AI agent 亲手绘制。**
 
 一个遵循 [Agent Skills](https://agentskills.io/) 开放标准的 skill。装进 **Claude Code**、**Codex CLI**
@@ -18,6 +23,18 @@
 - **版式**：A4 / 四边 2.54cm；正文宋体 + Times New Roman 12pt、1.5 倍行距、首行缩进 0.74cm；
   图统一「清爽商务」配色（白卡片 + 中性灰描边 + 少量强调色）。
 
+## 目录
+
+- [效果预览](#效果预览)
+- [它解决什么问题](#它解决什么问题)
+- [安装到 agent 工具](#安装到-agent-工具)
+- [命令行使用](#命令行使用)
+- [自检](#自检)
+- [图样式](#图样式)
+- [目录结构](#目录结构)
+- [限制](#限制)
+- [许可与致谢](#许可与致谢)
+
 ## 效果预览
 
 下面是 `examples/demo.docx` 的实际渲染（由 `examples/demo.md` 转换而来）。
@@ -30,13 +47,9 @@
 
 ![表格样式](examples/preview/表格样式.png)
 
-**整页效果**——封面页、含手绘架构图的页面：
+**图**——文档里的 mermaid 块会被替换成**手绘的图**（不是自动渲染）。下例是 `diagrams/architecture.py` 产出的系统总体架构图：
 
-![封面页](examples/preview/page-1.png)
-
-![含手绘架构图的页面](examples/preview/page-4.png)
-
-> 预览图由 Word 把 `demo.docx` 导出为 PDF 后逐页渲染得到；`examples/preview/` 下是完整 7 页。
+![系统总体架构图](diagrams/assets/diagram_1.png)
 
 ## 它解决什么问题
 
@@ -106,7 +119,9 @@ Copy-Item -Recurse -Force . "$HOME\.codex\skills\md-to-docx"
 
 agent 会自己读 `SKILL.md`、按「四步法」画图、跑自检、再转 docx。
 
-## 直接命令行使用（不经过 agent）
+## 命令行使用
+
+不经过 agent、直接敲命令也能跑：
 
 ```bash
 # 1) 画图（照 diagrams/architecture.py 抄，或用 _template.py 起步）
@@ -121,9 +136,9 @@ python scripts/md_to_docx.py examples/demo.md --diagrams diagrams/assets
 
 无图场景直接 `python scripts/md_to_docx.py 你的文档.md` 即可。
 
-## 自检——看不到图时的迭代信号
+## 自检
 
-`finalize()` 会检测并打印五项：
+看不到图时，`finalize()` 就是唯一的迭代信号——它会检测并打印五项：
 
 | 检查 | 说明 |
 | --- | --- |
@@ -146,7 +161,7 @@ python scripts/md_to_docx.py examples/demo.md --diagrams diagrams/assets
 **改一处全局生效**（`diagrams/architecture.py` 只额外声明逐层强调色）。
 历史候选对照见 `diagrams/assets/preview/`（生成脚本 `diagrams/_style_preview.py`）。
 
-## 目录
+## 目录结构
 
 ```
 md-to-docx/
