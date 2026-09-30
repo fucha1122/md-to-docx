@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Office 临时锁文件（Word 打开 .docx 时生成）
+~$*
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
