@@ -1,6 +1,7 @@
 ---
 name: "md-to-docx"
 description: "把 Markdown 转成格式化的 Word (.docx)。含 mermaid 图时，由你在读懂图意后手写绘图脚本（工具包 + 自检），产出结构正确的图再嵌入。当用户要 .md 转 .docx、交付 Word 版文档时调用。"
+license: Apache-2.0
 ---
 
 # md-to-docx：Markdown → Word 转换 Skill

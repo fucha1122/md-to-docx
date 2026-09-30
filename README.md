@@ -1,11 +1,14 @@
-# md-to-docx
+<h1 align="center">md-to-docx</h1>
 
-![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-blue)
-![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-2ea44f)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
-![Dependencies](https://img.shields.io/badge/deps-python--docx%20%C2%B7%20matplotlib-informational)
+<p align="center"><b>把 Markdown 转成可直接交付的 Word 文档——其中的图由 AI agent 亲手绘制。</b></p>
 
-**把 Markdown 转成可直接交付的 Word 文档——其中的图由 AI agent 亲手绘制。**
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.12%2B-blue" alt="Python 3.12+">
+  <img src="https://img.shields.io/badge/Agent%20Skills-compatible-2ea44f" alt="Agent Skills">
+  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Platform">
+  <img src="https://img.shields.io/badge/deps-python--docx%20%C2%B7%20matplotlib-informational" alt="Dependencies">
+  <img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="License: Apache-2.0">
+</p>
 
 一个遵循 [Agent Skills](https://agentskills.io/) 开放标准的 skill。装进 **Claude Code**、**Codex CLI**
 （或任何支持该标准的工具）之后，直接说「把这份 md 转成 Word」，agent 就会读懂文档里的 mermaid 图、
@@ -83,7 +86,7 @@ pip install -r requirements.txt      # python-docx, matplotlib
 | Claude Code | `~/.claude/skills/md-to-docx/` | `<项目>/.claude/skills/md-to-docx/` |
 | Codex CLI | `~/.codex/skills/md-to-docx/` | `<项目>/.codex/skills/md-to-docx/` |
 
-> ✅ 本仓库目录名已与 `SKILL.md` 的 `name` 一致（都是 `md-to-docx`），满足
+> 本仓库目录名已与 `SKILL.md` 的 `name` 一致（都是 `md-to-docx`），满足
 > [Agent Skills 标准](https://agentskills.io/specification)「目录名必须等于 name」的要求——
 > 所以**整目录拷贝即可直接使用，无需重命名**。若你日后改了 `name`，记得同步改目录名。
 > 校验可用官方参考工具 `skills-ref validate ./md-to-docx`；各工具的 skills 路径以自家文档为准。
